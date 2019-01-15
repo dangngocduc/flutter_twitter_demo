@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xff1DA1F2),
           fontFamily: 'RobotoMono',
           backgroundColor: Color(0xff10171e),
+          hintColor: Color(0x88ffffff),
+          bottomAppBarColor :  Color(0xff080b0f),
           scaffoldBackgroundColor : Color(0xff10171e),
           textTheme: Theme.of(context).textTheme.copyWith(
             title: Theme.of(context).textTheme.title.copyWith(color: Color(0xffFFFFFF)),
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
             body2: Theme.of(context).textTheme.body2.copyWith(color: Color(0xffFFFFFF)),
           ),
         iconTheme: IconThemeData(color: Color(0xff1DA1F2)),
-        dividerColor: Color(0xffE1E8ED)
+        dividerColor: Color(0x88E1E8ED)
 
       ),
       home: MainScreen(),

@@ -46,12 +46,39 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
       ),
-      body: Container(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).bottomAppBarColor,
+        leading: Padding(
+          padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
+          child: CircleAvatar(
+            radius: 16,
+            backgroundImage: NetworkImage(
+                "https://pbs.twimg.com/profile_images/968110489770246144/NT_I6ehi_400x400.jpg"),
+          ),
+        ),
+        titleSpacing: 0.0,
+        centerTitle: true,
+        title: Container(
+          decoration: BoxDecoration(
+              color: Theme.of(context).backgroundColor,
+              borderRadius: BorderRadius.circular(48),
+              border: Border.all(
+                  color: Theme.of(context).dividerColor, width: 0.5)),
+          height: 36,
+          width: MediaQuery.of(context).size.width - 56 * 2,
+          child: Padding(
+              padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
+              child: Text("Search Twitter", style: Theme.of(context).textTheme.body1.copyWith(color: Theme.of(context).hintColor),)),
+        ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.settings), onPressed: () {})
+        ],
+      ),
+      body: Center(
         child: Text("Body"),
       ),
-      bottomNavigationBar:
-          BottomNavigationBar(type: BottomNavigationBarType.fixed, items: bottomNavigationItem
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed, items: bottomNavigationItem, fixedColor: Theme.of(context).bottomAppBarColor,),
     );
   }
 }
