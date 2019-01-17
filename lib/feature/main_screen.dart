@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_twitter_demo/components/bottombar/bottom_bar_widget.dart';
 import 'package:flutter_twitter_demo/components/drawer_body_menu.dart';
 import 'package:flutter_twitter_demo/components/drawer_header.dart';
+import 'package:flutter_twitter_demo/feature/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -9,10 +11,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   var bottomNavigationItem = [
-    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text(("Home"))),
-    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text(("Home"))),
-    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text(("Home"))),
-    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text(("Home"))),
+    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
+    BottomNavigationBarItem(icon: Icon(Icons.search), title: Text("Trending")),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.notifications), title: Text("Notify")),
+    BottomNavigationBarItem(icon: Icon(Icons.mail), title: Text("Message")),
   ];
   @override
   Widget build(BuildContext context) {
@@ -68,17 +71,23 @@ class _MainScreenState extends State<MainScreen> {
           width: MediaQuery.of(context).size.width - 56 * 2,
           child: Padding(
               padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
-              child: Text("Search Twitter", style: Theme.of(context).textTheme.body1.copyWith(color: Theme.of(context).hintColor),)),
+              child: Text(
+                "Search Twitter",
+                style: Theme.of(context)
+                    .textTheme
+                    .body1
+                    .copyWith(color: Theme.of(context).hintColor),
+              )),
         ),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.settings), onPressed: () {})
         ],
       ),
-      body: Center(
-        child: Text("Body"),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed, items: bottomNavigationItem, fixedColor: Theme.of(context).bottomAppBarColor,),
+      body: HomeScreen(),
+      bottomNavigationBar: Theme(data: Theme.of(context).copyWith(
+        canvasColor: Theme.of(context).bottomAppBarColor,
+
+      ), child: BottomBarWidget()),
     );
   }
 }
