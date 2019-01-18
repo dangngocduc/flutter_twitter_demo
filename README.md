@@ -7,3 +7,5 @@ A new Flutter application demo twitter
 # ScreenShot Demo
 
 <img alt="Android screenshot" src="demo/Screenshot_20190114-142137.png" height="640">
+<img alt="Android screenshot" src="demo/Demo_twitter_home.png" height="640">
+
